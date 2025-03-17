@@ -1,0 +1,1 @@
+pip3 install numpy pandas opencv-python scikit-learn matplotlib seaborn scikit-image
