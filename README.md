@@ -1,1 +1,1 @@
-pip3 install numpy pandas opencv-python scikit-learn matplotlib seaborn scikit-image
+pip3 install numpy pandas opencv-python scikit-learn matplotlib seaborn scikit-image tensorflow  albumentations
