@@ -12,7 +12,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # Define paths
-dataset_path = "Face-Mask-Detection/dataset/"
+dataset_path = "Face-Mask-Dataset/dataset/"
 categories = ["with_mask", "without_mask"]
 
 data = []
