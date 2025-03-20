@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 # Define paths
-dataset_path = "Face-Mask-Detection/dataset/"
+dataset_path = "Face-Mask-Dataset/dataset/"
 categories = ["with_mask", "without_mask"]
 
 data = []

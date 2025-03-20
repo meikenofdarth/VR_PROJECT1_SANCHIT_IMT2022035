@@ -38,7 +38,9 @@ print(f"Dataset Loaded: {len(X_train)} training samples, {len(X_test)} testing s
 
 # Data Augmentation to improve generalization
 train_datagen = ImageDataGenerator(rotation_range=20, zoom_range=0.2, horizontal_flip=True)
-train_generator = train_datagen.flow(X_train, y_train, batch_size=32)
+# -> original
+train_generator = train_datagen.flow(X_train, y_train, batch_size=32) 
+# train_generator = train_datagen.flow(X_train, y_train, batch_size=64)  # Try 64 instead of 32 -> 94.75
 
 # Define CNN Model
 model = Sequential([
@@ -58,10 +60,16 @@ model = Sequential([
     Dense(128, activation='relu'),
     Dropout(0.5),  # Regularization
     Dense(1, activation='sigmoid')  # Binary classification
-])
+#     from tensorflow.keras.activations import swish
+# Dense(1, activation=swish)
 
-# Compile Model
-model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+])
+# original
+# # Compile Model -> 94
+# model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy']) 
+# Try lower learning rate -> 95 
+model.compile(optimizer=Adam(learning_rate=0.0001), loss='binary_crossentropy', metrics=['accuracy'])
+
 
 # Train Model
 history = model.fit(train_generator, epochs=10, validation_data=(X_test, y_test), batch_size=32)
